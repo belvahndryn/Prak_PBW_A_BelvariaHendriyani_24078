@@ -92,13 +92,13 @@
 
         <dl>
             <dt>Nama</dt>
-            <dd>Farah</dd>
+            <dd>Belva</dd>
 
             <dt>No Telepon</dt>
             <dd>08123456789</dd>
 
             <dt>Email</dt>
-            <dd><a href="mailto:Farah@gmail.com">Farah@gmail.com</a></dd>
+            <dd><a href="mailto:belva@gmail.com">belva@gmail.com</a></dd>
 
             <dt>Media Sosial</dt>
             <dd><a href="https://www.instagram.com/belvahndryn_?stkn=MXZ5cWFmam1lcHQ4eA==" target="_blank" rel="noopener">Instagram</a></dd>
