@@ -1,47 +1,43 @@
-# Laporan Tugas Pertemuan 2
+# Laporan Tugas Pertemuan 3
+
 Disusun Oleh:
-<br>
-<table>
-    <tbody>
-        <tr>
-            <td>
-                Nama:
-            </td>
-            <td>
-                Belvaria Hendriyani
-            </td>
-        </tr>
-        <tr>
-           <td>
-                NPM:
-            </td>
-            <td>
-                4524210078
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Kelas:
-            </td>
-            <td>
-                Prak Pemrograman Berbasis Web (A)
-            </td>
-        </tr>
-    </tbody>
-</table>
 
-## Pembuatan View
-### Home Page
-Halaman ini memuat informasi halaman awal atau beranda bagi pengguna yang mengakses url `/`. Isinya berupa judul "Selamat Datang di Blog LaraPress", deskripsi singkat bahwa ini adalah halaman utama aplikasi blog, serta tautan menuju halaman Tentang Kami dan Kontak.
+|            |                                   |
+| :--------- | :-------------------------------- |
+| **Nama:**  | Belvaria Hendriyani               |
+| **NPM:**   | 4524210078                        |
+| **Kelas:** | Prak Pemrograman Berbasis Web (A) |
 
-![Home Page](image.png)
+---
 
-### Tentang Kami
-Halaman ini memuat informasi mengenai apa itu proyek LaraPress, yaitu sebuah proyek blog sederhana yang dibuat untuk mempelajari dasar-dasar framework Laravel 12. Halaman ini dapat diakses melalui url `/tentang-kami` dan memiliki tautan untuk kembali ke halaman utama serta menuju halaman Kontak.
+## 1. Tampilan Halaman Utama (_Welcome Page / Beranda_)
 
-![Tentang Kami](image-1.png)
+Halaman utama setelah konfigurasi Laravel Breeze dan layout terpadu.
 
-### Kontak
-Halaman ini memuat identitas pembuat beserta kontak yang dapat dihubungi, meliputi nama, nomor telepon, email, dan media sosial (Instagram). Halaman ini dapat diakses melalui url `/kontak` dan memiliki tautan untuk kembali ke halaman utama serta menuju halaman Tentang.
+> ![Halaman Utama](image-beranda.png)
 
-![Kontak](image-2.png)
+---
+
+## 2. Halaman Autentikasi (Log in & Register)
+
+Tampilan form masuk dan pendaftaran yang selinear dengan navigasi aplikasi.
+
+> ![Halaman Login](image-login.png)
+> ![Halaman Register](image-register.png)
+
+---
+
+## 3. Halaman Dashboard Pengguna (_Logged In_)
+
+Tampilan menu navigasi utama serta status akun aktif di pojok kanan atas.
+
+> ![Halaman Dashboard](image-dashboard.png)
+
+---
+
+## 4. Halaman About & Contact
+
+Integrasi halaman kustom (Tentang Kami dan Kontak) yang tetap mempertahankan navbar utama.
+
+> ![Halaman About](image-about.png)
+> ![Halaman Contact](image-contact.png)
