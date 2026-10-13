@@ -86,7 +86,7 @@ cd SMP-Mentari
 
 ---
 
-### 2. Di bagian `Install Dependencies`
+### 2. `Install Dependencies`
 
 ````markdown
 ### 2. Install Dependencies
@@ -99,7 +99,7 @@ npm install
 
 ---
 
-### 3. Di bagian `Setup Environment`
+### 3. `Setup Environment`
 
 ````markdown
 ### 3. Setup Environment
@@ -112,7 +112,7 @@ php artisan key:generate
 
 ---
 
-### 4. Di bagian `Setup Database` (Kredensial .env)
+### 4. `Setup Database` (Kredensial .env)
 
 ````markdown
 ### 4. Setup Database
@@ -135,7 +135,7 @@ php artisan migrate
 
 ---
 
-### 5. Di bagian `Penggunaan` (Menjalankan Server)
+### 5. `Penggunaan` (Menjalankan Server)
 
 ````markdown
 ## 💻 Penggunaan
