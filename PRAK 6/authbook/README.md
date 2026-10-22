@@ -1,59 +1,172 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 📚 Sistem Manajemen Buku - Authbook
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Aplikasi Sistem Manajemen Buku berbasis web yang dibangun menggunakan **Laravel 11** dan **Filament 3.x**. Aplikasi ini mencakup pengelolaan data buku dan penulis secara komprehensif, mulai dari fitur CRUD, pencarian, filter, relasi database, hingga manajemen media upload cover buku.
 
-## About Laravel
+## 🛠️ Fitur Utama
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- **Authentication & Dashboard**: Sistem login terproteksi untuk admin panel.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- **Manajemen Authors (Penulis)**: Fitur CRUD untuk mengelola data penulis buku.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- **Manajemen Books (Buku)**:
+    - CRUD Data Buku (ISBN, Judul, Penulis, Penerbit, Tahun, Status, Cover).
 
-## Learning Laravel
+    - Integrasi relasi _One-to-Many_ dengan tabel `authors`.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+    - Fitur _Inline Option Form_ untuk menambahkan penulis baru langsung dari form buku.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+    - Upload & Manajemen gambar _cover_ buku.
 
-## Laravel Sponsors
+- **Filtering & Searching**: Pencarian berdasarkan judul/ISBN serta filter status keterSEDIAAN dan tahun terbit.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+- **Seeder & Dummy Data**: Populasikan database dengan data dummy realistis menggunakan Faker & Factory.
 
-### Premium Partners
+## 💻 Prasyarat Sistem
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+Sebelum menjalankan proyek ini, pastikan sistem kamu sudah terinstal:
 
-## Contributing
+- **PHP** `>= 8.2`
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- **Composer**
 
-## Code of Conduct
+- **MySQL / MariaDB** (melalui Laragon / XAMPP)
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- **Git**
 
-## Security Vulnerabilities
+## 🚀 Panduan Instalasi & Setup Proyek
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Ikuti langkah-langkah di bawah ini untuk menjalankan proyek di lingkungan lokal:
 
-## License
+### 1. Clone Repositori
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```
+git clone https://github.com/username/authbook.git
+cd authbook
+
+```
+
+### 2. Instal Dependency PHP
+
+Jalankan perintah berikut untuk menginstal seluruh dependensi Laravel dan Filament:
+
+```
+composer install
+
+```
+
+### 3. Konfigurasi Environment (`.env`)
+
+Salin file `.env.example` menjadi `.env`:
+
+```
+copy .env.example .env
+
+```
+
+Buka file `.env` dan sesuaikan pengaturan database MySQL:
+
+```
+APP_NAME=Authbook
+APP_URL=http://127.0.0.1:8000
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=authbook
+DB_USERNAME=root
+DB_PASSWORD=
+
+```
+
+### 4. Generate Application Key
+
+```
+php artisan key:generate
+
+```
+
+### 5. Jalankan Migration dan Seeder
+
+Jalankan migrasi tabel beserta seeder data awal (termasuk akun admin, data _authors_, dan _books_):
+
+```
+php artisan migrate:fresh --seed
+
+```
+
+### 6. Buat Symbolic Link Storage
+
+Agar file cover buku yang di-upload dapat diakses secara publik, buat _symlink_ storage:
+
+```
+php artisan storage:link
+
+```
+
+### 7. Buat Akun Admin Filament (Opsional)
+
+Jika ingin membuat akun admin baru di luar seeder:
+
+```
+php artisan make:filament-user
+
+```
+
+### 8. Jalankan Local Server
+
+```
+php artisan serve
+
+```
+
+Akses aplikasi melalui browser di alamat: `http://127.0.0.1:8000/admin`
+
+## 📊 Credential Akses Admin Default
+
+Gunakan kredensial berikut untuk masuk ke Admin Panel (hasil dari Database Seeder):
+
+- **URL Login**: `http://127.0.0.1:8000/admin/login`
+
+- **Email**: `admin@example.com`
+
+- **Password**: `password`
+
+## 📸 Bukti Evaluasi & Tangkapan Layar (Tugas 1)
+
+Berikut adalah bukti dokumentasi pengujian fitur-fitur aplikasi:
+
+### 1. Halaman Login Admin Panel
+
+> Menampilkan layar autentikasi admin panel Filament yang berhasil diakses.
+> ![login success](image.png)
+
+### 2. Daftar Buku (List Books) dengan Data Seeder
+
+> Menampilkan tabel daftar buku yang terisi otomatis oleh seeder beserta relasi penulis dan status.
+> ![list book](image-1.png)
+
+### 3. Form Tambah Buku (Create Book)
+
+> Menampilkan formulir penambahan buku baru, termasuk input ISBN, relasi author, dan upload gambar cover.
+> ![create book](image-2.png)
+
+### 4. Pengujian Fitur Pencarian (Search)
+
+> Menampilkan hasil pencarian spesifik berdasarkan kata kunci pada tabel data buku.
+> ![search book](image-3.png)
+
+### 5. Pengujian Fitur Filter Aktif
+
+> Menampilkan penyaringan data buku yang sedang aktif berdasarkan kriteria tertentu (misal: Status Available).
+> ![filter aktif](image-4.png)
+
+## 🛠️ Perintah Pemeliharaan (Troubleshooting)
+
+Jika mengalami masalah gambar tidak muncul atau perubahan rute tidak terbaca, jalankan:
+
+```
+php artisan optimize:clear
+
+```
+
+_Disusun untuk memenuhi Tugas Praktikum Pemrograman Berbasis Web._
