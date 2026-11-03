@@ -2,7 +2,7 @@
 
 **Nama:** Belvaria Hendriyani  
 **NPM:** 4524210078  
-**Mata Kuliah / Praktikum:** Pemrograman Berbasis Web (PBW2-B)  
+**Mata Kuliah / Praktikum:** Pemrograman Berbasis Web (PBW-A)  
 **Aplikasi:** Sistem Manajemen Perpustakaan (Authbook)
 
 ---
